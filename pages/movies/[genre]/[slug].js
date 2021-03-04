@@ -15,10 +15,10 @@ const Movie=({movie})=>{
 }
 
 export const getServerSideProps = async(context)=>{
-
+    const { API_URL } = process.env
     const {slug} = context.query
     
-    const res = await fetch(`http://localhost:1337/movies?slug=${slug}`)
+    const res = await fetch(`${API_URL}/movies?slug=${slug}`)
     const data = await res.json()
     
     return{
